@@ -1,5 +1,3 @@
-console.log ('SUCCESS: module "buttons" added')
-
 // theme toggle
 
 let toggleButton = document.getElementById('toggle-button');

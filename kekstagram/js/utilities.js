@@ -1,4 +1,3 @@
-console.log ('SUCCESS: module "utilities" added')
 
 import { image_array, descriptionArray, commentMessage, commentNames, commentSurnames, indexArray} from "./basic-data.js";
 
@@ -100,26 +99,25 @@ const createComment = () => {
     name: getRandomArrayElement(commentNames) + '' + getRandomArrayElement(commentSurnames),
   }
 }
-const getComments = Array.from({length: getRandomPositiveInteger(1, 9)}, createComment);
+const getComments = () => Array.from({length: getRandomPositiveInteger(1, 9)}, createComment);
 
 // create photo upload emulator
 
 const createPhoto = () => {
-  console.log(indexArray)
+  let getCommentsFunctionResult = getComments()
   return {
     id: '' + getId(),
     url: '' + `photos/${getPhotoId()}.jpg`,
     description: '' + getRandomArrayElement(descriptionArray),
     likes: '' + getRandomPositiveInteger(15, 200),
-    comments: '' + getComments
+    comments: getCommentsFunctionResult,
+    commentsNumber: getCommentsFunctionResult.length,
   }
   }
 
   // create array of X photos in profile
 
-  export const createPhotos = Array.from({length: 25}, createPhoto);
-
-
+  export const createPhotos = () => Array.from({length: 11}, createPhoto);
   // ARCHIVE
 
 

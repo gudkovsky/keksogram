@@ -1,5 +1,3 @@
-console.log ('SUCCESS: module "basic-data" added')
-
 
 const image_array = [
   'img1.jpg',
