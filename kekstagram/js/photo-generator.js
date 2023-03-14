@@ -21,7 +21,7 @@ const picturesContainer = document.querySelector('.pictures')
 
 import { createPhotos } from "./utilities.js";
 
-const randomGeneratedPhotos = createPhotos();
+export const randomGeneratedPhotos = createPhotos();
 
 randomGeneratedPhotos.forEach((photo) => {
   const randomPicture = randomPictureTemplate.cloneNode(true);
@@ -34,7 +34,8 @@ randomGeneratedPhotos.forEach((photo) => {
   randomPhotoCommentsCount.textContent = photo.commentsNumber;
   randomPhotoLikesCount.textContent = photo.likes;
 
+  randomPhotoImg.alt = photo.description
 
   picturesContainer.appendChild(randomPicture)
 });
-console.log(randomGeneratedPhotos)
+
