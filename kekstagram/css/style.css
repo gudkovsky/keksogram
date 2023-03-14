@@ -954,6 +954,13 @@ body.light-active .img-upload__label::after {
         align-items: center;
 }
 
+.social__name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-right: 20px;
+  color: #000000c5;
+}
+
 .social__comment-count {
   padding-top: 20px;
   padding-left: 65px;

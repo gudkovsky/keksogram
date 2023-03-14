@@ -4,8 +4,8 @@ const previewPictures = document.querySelectorAll('.picture')
 const bigPictureCloseButton = bigPictureContainer.querySelector('.big-picture__cancel')
 const bigPictureDescription = bigPictureContainer.querySelector('.social__caption')
 const bigPictureLikesCount = bigPictureContainer.querySelector('.likes-count')
-const bigPictureCommentsCount = bigPictureContainer.querySelector('.social__comment-count') // отображено
-const bigPictureCommentsTotal = bigPictureContainer.querySelector('.comments-count') // всего комментов
+const bigPictureCommentsCount = bigPictureContainer.querySelector('.social__comment-count')
+const commentsList = document.querySelector('.social__comments')
 
 import { randomGeneratedPhotos } from "./photo-generator.js"
 
@@ -21,8 +21,23 @@ previewPictures.forEach((e, i) => {
 
     bigPictureCommentsCount.innerHTML = `${randomGeneratedPhotos[i].commentsNumber} из <span class="comments-count">${randomGeneratedPhotos[i].commentsNumber}</span> комментариев`;
 
-    // console.log(i)
-    // console.log(randomGeneratedPhotos[i].comments)
+    commentsList.innerHTML = ''
+    for (let x = 0; x < randomGeneratedPhotos[i].commentsNumber; x++) {
+      const commentText = randomGeneratedPhotos[i].comments[`${x}`].message
+      const commentName = randomGeneratedPhotos[i].comments[`${x}`].name
+      const commentUserpic = randomGeneratedPhotos[i].comments[`${x}`].avatar
+
+      const commentTemplate = `<li class="social__comment">
+      <img class="social__picture" src="${commentUserpic}" alt="Аватар комментатора фотографии" width="35" height="35">
+        <p class="social__name">${commentName}</p>
+       <p class="social__text">${commentText}</p>
+    </li>`
+    commentsList.insertAdjacentHTML('beforeend', commentTemplate)
+
+
+     // цикл повторяется столько раз, сколько комментариев в блоке
+     // цикл добавляет следующий комментарий по образцу в тело родителя
+    }
 
   })
 

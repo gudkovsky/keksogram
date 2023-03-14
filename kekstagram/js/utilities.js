@@ -39,7 +39,7 @@ const getRandomArrayElement = (array) => {
 // comment ID and avatar old version
 
 let commentId = getRandomPositiveInteger(1, 1000);
-let commentAvatar = `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`
+// let commentAvatar = `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`
 
 // create array of photos when cycle lengh = number of elements in the future array
 
@@ -94,7 +94,7 @@ let getPhotoId = function() {
 const createComment = () => {
   return {
     id: '' + commentId,
-    avatar: '' + commentAvatar,
+    avatar: '' +  `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
     message: '' + getRandomArrayElement(commentMessage),
     name: getRandomArrayElement(commentNames) + '' + getRandomArrayElement(commentSurnames),
   }
@@ -117,7 +117,7 @@ const createPhoto = () => {
 
   // create array of X photos in profile
 
-  export const createPhotos = () => Array.from({length: 11}, createPhoto);
+  export const createPhotos = () => Array.from({length: 12}, createPhoto);
   // ARCHIVE
 
 
