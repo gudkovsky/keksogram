@@ -49,8 +49,6 @@ zoomInButton.addEventListener('click', () => {
 
 // Filters
 
-// 1. юзер кликает на фильтр - li effects__list .classList[1]
-// 2. фильтр с этим классом применяется к биг пик
 
 const effectsList = document.querySelector('.effects__list')
 
@@ -58,4 +56,27 @@ effectsList.addEventListener('click', (e) => {
   const effectType = e.target.value
 
   uploadedImage.classList = `${'effects__preview--' + effectType}`
+
+  if (uploadedImage.classList.contains('effects__preview--none')) {
+    uploadedImage.style.cssText = `filter: none`
+  }
+  if (uploadedImage.classList.contains('effects__preview--chrome')) {
+    uploadedImage.style.cssText = `filter: grayscale(1)`
+  }
+  if (uploadedImage.classList.contains('effects__preview--sepia')) {
+    uploadedImage.style.cssText = `filter: sepia(1)`
+  }
+  if (uploadedImage.classList.contains('effects__preview--marvin')) {
+    uploadedImage.style.cssText = `filter: invert(40%)`
+  }
+  if (uploadedImage.classList.contains('effects__preview--phobos')) {
+    uploadedImage.style.cssText = `filter: blur(2px)`
+  }
+  if (uploadedImage.classList.contains('effects__preview--heat')) {
+    uploadedImage.style.cssText = `filter: brightness(1.5)`
+  }
+
 })
+
+// 1. В зависимости от фильтра применяется style: filter X
+

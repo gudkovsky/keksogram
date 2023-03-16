@@ -704,13 +704,13 @@ body.light-active .img-upload__label::after {
 }
 
 .effects__preview--marvin {
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
+  -webkit-filter: invert(40%);
+          filter: invert(40%);
 }
 
 .effects__preview--phobos {
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
 }
 
 .effects__preview--heat {
