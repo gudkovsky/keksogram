@@ -329,9 +329,18 @@ main {
   /* background-image: url('../img/index-bg/img1.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
+
+   border: none;
+}
+
+.img-upload--mask {
+  /* position: relative; */
+  /* min-height: 569px; */
+  /* background-color: white; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
   -webkit-mask-image:
   url('../img/logo-mask-invert.png');
-  border: none;
 }
 
 body.light-active .img-upload__form {
