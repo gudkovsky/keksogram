@@ -60,3 +60,22 @@ document.addEventListener('keydown', (e) => {
     document.body.classList.remove('modal-open')
   }
 })
+
+document.addEventListener('click', (e) => {
+  if (e.target == bigPictureContainer) {
+    bigPictureContainer.classList.add('hidden')
+    document.body.classList.remove('modal-open')
+  }
+})
+
+
+// likes or smth
+
+// const bigPicLikesBtn = document.querySelector('.likes-count')
+
+// bigPicLikesBtn.addEventListener('click', () => {
+//   if (!bigPicLikesBtn.classList.contains('likes-count--active')) {
+//     bigPicLikesBtn.classList.add('likes-count--active')
+
+//   }
+// })
