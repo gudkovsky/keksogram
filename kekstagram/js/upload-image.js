@@ -20,9 +20,9 @@ const zoomInButton = document.querySelector('.scale__control--bigger')
 let imageScaleNumber = 1;
 let zoomPercentage = 100;
 
-if (imageScaleNumber === 1) {
-  zoomInButton.setAttribute('disabled', '')
-}
+// if (imageScaleNumber === 1) {
+//   zoomInButton.setAttribute('disabled', '')
+// }
 
 
 zoomOutButton.addEventListener('click', () => {
@@ -42,7 +42,20 @@ zoomInButton.addEventListener('click', () => {
     zoomValue.value = `${zoomPercentage}%`;
     uploadedImage.style.cssText = `transform: scale(${imageScaleNumber})`
     zoomOutButton.removeAttribute('disabled')
-    if (imageScaleNumber === 1) {
+    if (imageScaleNumber === 2) {
       zoomInButton.setAttribute('disabled', '')
     }
+})
+
+// Filters
+
+// 1. юзер кликает на фильтр - li effects__list .classList[1]
+// 2. фильтр с этим классом применяется к биг пик
+
+const effectsList = document.querySelector('.effects__list')
+
+effectsList.addEventListener('click', (e) => {
+  const effectType = e.target.value
+
+  uploadedImage.classList = `${'effects__preview--' + effectType}`
 })

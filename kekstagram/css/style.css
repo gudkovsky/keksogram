@@ -572,6 +572,7 @@ body.light-active .img-upload__label::after {
   height: 600px;
 
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .img-upload__preview img {
@@ -650,6 +651,10 @@ body.light-active .img-upload__label::after {
   cursor: pointer;
 }
 
+/* .effects__radio {
+  pointer-events: none;
+} */
+
 .effects__label:hover,
 .effects__label:focus,
 .effects__radio:checked + .effects__label {
@@ -704,13 +709,13 @@ body.light-active .img-upload__label::after {
 }
 
 .effects__preview--phobos {
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
 }
 
 .effects__preview--heat {
-  -webkit-filter: brightness(3);
-          filter: brightness(3);
+  -webkit-filter: brightness(1.5);
+          filter: brightness(1.5);
 }
 
 
