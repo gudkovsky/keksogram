@@ -8,6 +8,8 @@ imageUploadInput.addEventListener('change', () => {
 
   imageUploadForm.classList.remove('img-upload--mask')
 
+
+console.log(imageUploadInput.files)
 })
 
 
@@ -92,29 +94,41 @@ const slider = document.querySelector('.slider')
 
 slider.onmouseup = (e) => {
   let sliderValue = e.target.value
-
   if (uploadedImage.classList.contains('effects__preview--chrome')) {
 
     let  filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
-    // if (sliderValue = 100) {
-    //   filterValue = 1
-    // }
+    if (sliderValue == 100) {
+      filterValue = 1
+    }
     uploadedImage.style.cssText = `filter: grayscale(${filterValue})`
   }
-  if (uploadedImage.classList.contains('effects__preview--sepia')) {
-    let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
-    uploadedImage.style.cssText = `filter: sepia(${filterValue})`
 
+  if (uploadedImage.classList.contains('effects__preview--sepia')) {
+
+    let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    if (sliderValue == 100) {
+      filterValue = 1
+    }
+    uploadedImage.style.cssText = `filter: sepia(${filterValue})`
   }
+
   if (uploadedImage.classList.contains('effects__preview--marvin')) {
     let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    if (sliderValue == 100) {
+      filterValue = 1
+    }
     let filterValueTotal = (40 * filterValue) + '%'
+
+
     uploadedImage.style.cssText = `filter: invert(${filterValueTotal})`
 
   }
   if (uploadedImage.classList.contains('effects__preview--phobos')) {
 
     let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    if (sliderValue == 100) {
+      filterValue = 1
+    }
     let filterValueTotal = (2 * filterValue) + 'px'
 
     uploadedImage.style.cssText = `filter: blur(${filterValueTotal})`
@@ -123,10 +137,12 @@ slider.onmouseup = (e) => {
   }
   if (uploadedImage.classList.contains('effects__preview--heat')) {
     let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    if (sliderValue == 100) {
+      filterValue = 1
+    }
     let filterValueTotal = (1.5 * filterValue)
 
     uploadedImage.style.cssText = `filter: brightness(${filterValueTotal})`
-
   }
 
 }
@@ -134,25 +150,30 @@ slider.onmouseup = (e) => {
 // close upload modal
 const uploadPictureCloseButton = document.querySelector('.img-upload__cancel')
 const uploadOverlay = document.querySelector('.img-upload__overlay')
+const fileUploadInput = document.querySelector('.img-upload__input')
 
-uploadPictureCloseButton.addEventListener('click', () => {
+let closeUploadForm = function () {
   uploadOverlay.classList.add('hidden')
   document.body.classList.remove('modal-open')
   imageUploadForm.classList.add('img-upload--mask')
+  imageUploadForm.reset
+  console.log(imageUploadInput.files)
+}
+
+uploadPictureCloseButton.addEventListener('click', () => {
+  closeUploadForm()
 })
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    uploadOverlay.classList.add('hidden')
-    document.body.classList.remove('modal-open')
-    imageUploadForm.classList.add('img-upload--mask')
+    closeUploadForm()
+
   }
 })
 
 document.addEventListener('click', (e) => {
   if (e.target == uploadOverlay) {
-    uploadOverlay.classList.add('hidden')
-    document.body.classList.remove('modal-open')
-    imageUploadForm.classList.add('img-upload--mask')
+    closeUploadForm()
+
   }
 })
