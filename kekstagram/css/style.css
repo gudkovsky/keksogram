@@ -594,6 +594,11 @@ body.light-active .img-upload__label::after {
   width: 495px;
   height: 33px;
 
+  opacity: 1;
+
+  transition: .4s;
+  transition-property: opacity;
+
   font-size: 12px;
   line-height: 42px;
   text-align: center;
@@ -612,7 +617,11 @@ body.light-active .img-upload__label::after {
   display: none;
 }
 
+/*  slider */
 
+.slider {
+  width: 100%;
+}
 /**
  * Блок с эффектами, которые можно применить к изображению
  */

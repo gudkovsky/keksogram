@@ -49,8 +49,10 @@ zoomInButton.addEventListener('click', () => {
 
 // Filters
 
-
+const effectLevelField = document.querySelector('.img-upload__effect-level')
 const effectsList = document.querySelector('.effects__list')
+
+effectLevelField.style.cssText = `opacity: 0`
 
 effectsList.addEventListener('click', (e) => {
   const effectType = e.target.value
@@ -58,25 +60,99 @@ effectsList.addEventListener('click', (e) => {
   uploadedImage.classList = `${'effects__preview--' + effectType}`
 
   if (uploadedImage.classList.contains('effects__preview--none')) {
-    uploadedImage.style.cssText = `filter: none`
+    uploadedImage.style.cssText = `filter: none;`
+
+    effectLevelField.style.cssText = `opacity: 0`
   }
   if (uploadedImage.classList.contains('effects__preview--chrome')) {
     uploadedImage.style.cssText = `filter: grayscale(1)`
+    effectLevelField.style.cssText = `opacity: 1`
   }
   if (uploadedImage.classList.contains('effects__preview--sepia')) {
     uploadedImage.style.cssText = `filter: sepia(1)`
+    effectLevelField.style.cssText = `opacity: 1`
   }
   if (uploadedImage.classList.contains('effects__preview--marvin')) {
     uploadedImage.style.cssText = `filter: invert(40%)`
+    effectLevelField.style.cssText = `opacity: 1`
   }
   if (uploadedImage.classList.contains('effects__preview--phobos')) {
     uploadedImage.style.cssText = `filter: blur(2px)`
+    effectLevelField.style.cssText = `opacity: 1`
   }
   if (uploadedImage.classList.contains('effects__preview--heat')) {
     uploadedImage.style.cssText = `filter: brightness(1.5)`
+    effectLevelField.style.cssText = `opacity: 1`
   }
 
 })
 
-// 1. В зависимости от фильтра применяется style: filter X
+// slider
+const slider = document.querySelector('.slider')
 
+slider.onmouseup = (e) => {
+  let sliderValue = e.target.value
+
+  if (uploadedImage.classList.contains('effects__preview--chrome')) {
+
+    let  filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    // if (sliderValue = 100) {
+    //   filterValue = 1
+    // }
+    uploadedImage.style.cssText = `filter: grayscale(${filterValue})`
+  }
+  if (uploadedImage.classList.contains('effects__preview--sepia')) {
+    let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    uploadedImage.style.cssText = `filter: sepia(${filterValue})`
+
+  }
+  if (uploadedImage.classList.contains('effects__preview--marvin')) {
+    let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    let filterValueTotal = (40 * filterValue) + '%'
+    uploadedImage.style.cssText = `filter: invert(${filterValueTotal})`
+
+  }
+  if (uploadedImage.classList.contains('effects__preview--phobos')) {
+
+    let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    let filterValueTotal = (2 * filterValue) + 'px'
+
+    uploadedImage.style.cssText = `filter: blur(${filterValueTotal})`
+
+    console.log(filterValueTotal)
+  }
+  if (uploadedImage.classList.contains('effects__preview--heat')) {
+    let filterValue = `${'0.'+ sliderValue.padStart(2, "0")}`
+    let filterValueTotal = (1.5 * filterValue)
+
+    uploadedImage.style.cssText = `filter: brightness(${filterValueTotal})`
+
+  }
+
+}
+
+// close upload modal
+const uploadPictureCloseButton = document.querySelector('.img-upload__cancel')
+const uploadOverlay = document.querySelector('.img-upload__overlay')
+
+uploadPictureCloseButton.addEventListener('click', () => {
+  uploadOverlay.classList.add('hidden')
+  document.body.classList.remove('modal-open')
+  imageUploadForm.classList.add('img-upload--mask')
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    uploadOverlay.classList.add('hidden')
+    document.body.classList.remove('modal-open')
+    imageUploadForm.classList.add('img-upload--mask')
+  }
+})
+
+document.addEventListener('click', (e) => {
+  if (e.target == uploadOverlay) {
+    uploadOverlay.classList.add('hidden')
+    document.body.classList.remove('modal-open')
+    imageUploadForm.classList.add('img-upload--mask')
+  }
+})
