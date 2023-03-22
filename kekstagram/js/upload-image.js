@@ -156,7 +156,7 @@ let closeUploadForm = function () {
   uploadOverlay.classList.add('hidden')
   document.body.classList.remove('modal-open')
   imageUploadForm.classList.add('img-upload--mask')
-  imageUploadForm.reset
+  imageUploadForm.reset()
   console.log(imageUploadInput.files)
 }
 
