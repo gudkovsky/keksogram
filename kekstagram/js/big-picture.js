@@ -19,6 +19,8 @@ previewPictures.forEach((e, i) => {
     bigPictureDescription.textContent = clickedPicture.alt;
     bigPictureLikesCount.textContent = randomGeneratedPhotos[i].likes;
 
+    // подставлять X в 1е число. Прибавлять к X + N, добавлять N комментариев в ленту. Пока не закончатся комменты (мб проверять остатком от деления)
+
     bigPictureCommentsCount.innerHTML = `${randomGeneratedPhotos[i].commentsNumber} из <span class="comments-count">${randomGeneratedPhotos[i].commentsNumber}</span> комментариев`;
 
     commentsList.innerHTML = ''

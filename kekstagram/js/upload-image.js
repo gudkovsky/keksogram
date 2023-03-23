@@ -8,8 +8,6 @@ imageUploadInput.addEventListener('change', () => {
 
   imageUploadForm.classList.remove('img-upload--mask')
 
-
-console.log(imageUploadInput.files)
 })
 
 
@@ -151,8 +149,21 @@ slider.onmouseup = (e) => {
 const uploadPictureCloseButton = document.querySelector('.img-upload__cancel')
 const uploadOverlay = document.querySelector('.img-upload__overlay')
 const fileUploadInput = document.querySelector('.img-upload__input')
+const hashtagsInput = document.querySelector('.text__hashtags')
 
-let closeUploadForm = function () {
+// const handleFocus = function (e) {
+
+//   if (e.target == hashtagsInput) {
+//     hashtagsInput.stopPropagation()
+//     console.log(e.target)
+//   }
+// }
+
+hashtagsInput.addEventListener('focus', (e) => {
+  e.stopPropagation()
+})
+let closeUploadForm = function (e) {
+
   uploadOverlay.classList.add('hidden')
   document.body.classList.remove('modal-open')
   imageUploadForm.classList.add('img-upload--mask')
@@ -165,7 +176,7 @@ uploadPictureCloseButton.addEventListener('click', () => {
 })
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
+  if (e.key == 'Escape') {
     closeUploadForm()
 
   }
@@ -174,6 +185,8 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('click', (e) => {
   if (e.target == uploadOverlay) {
     closeUploadForm()
-
   }
+
 })
+
+// stop while focus

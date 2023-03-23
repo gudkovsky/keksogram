@@ -99,7 +99,7 @@ const createComment = () => {
     name: getRandomArrayElement(commentNames) + '' + getRandomArrayElement(commentSurnames),
   }
 }
-const getComments = () => Array.from({length: getRandomPositiveInteger(1, 9)}, createComment);
+const getComments = () => Array.from({length: getRandomPositiveInteger(2, 9)}, createComment);
 
 // create photo upload emulator
 
