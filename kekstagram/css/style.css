@@ -605,7 +605,7 @@ body.light-active .img-upload__label::after {
   color: #ffffff;
   white-space: nowrap;
 
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 33px;
 
   -webkit-transform: translateX(-50%);
@@ -620,8 +620,15 @@ body.light-active .img-upload__label::after {
 /*  slider */
 
 .slider {
+  /* -webkit-appearance: none; */
+  /* margin-right: 15px; */
   width: 100%;
+  height: 7px;
+  transform: translateY(-10px);
 }
+
+
+
 /**
  * Блок с эффектами, которые можно применить к изображению
  */
