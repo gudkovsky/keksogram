@@ -159,10 +159,11 @@ const hashtagsInput = document.querySelector('.text__hashtags')
 //   }
 // }
 
-hashtagsInput.addEventListener('focus', (e) => {
-  e.stopPropagation()
-})
-let closeUploadForm = function (e) {
+
+let closeUploadForm = function () {
+  if (hashtagsInput == document.activeElement) {
+   return
+  }
 
   uploadOverlay.classList.add('hidden')
   document.body.classList.remove('modal-open')

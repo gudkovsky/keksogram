@@ -997,7 +997,7 @@ body.light-active .img-upload__label::after {
 }
 
 .social__comments-loader {
-  padding: 0;
+  /* padding: 0;
   padding-left: 65px;
   padding-bottom: 20px;
   position: relative;
@@ -1006,7 +1006,8 @@ body.light-active .img-upload__label::after {
   color: #3b77c0;
 
   background: none;
-  border: none;
+  border: none; */
+  display: none;
 }
 
 .comments-loader {
