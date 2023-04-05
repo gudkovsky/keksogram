@@ -169,7 +169,6 @@ let closeUploadForm = function () {
   document.body.classList.remove('modal-open')
   imageUploadForm.classList.add('img-upload--mask')
   imageUploadForm.reset()
-  console.log(imageUploadInput.files)
 }
 
 uploadPictureCloseButton.addEventListener('click', () => {
