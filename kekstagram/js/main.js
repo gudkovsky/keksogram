@@ -4,5 +4,6 @@ import './basic-data.js';
 import './photo-generator.js'
 import './big-picture.js'
 import './upload-image.js'
+import './submit-handler.js'
 
 import { createPhotos } from './utilities.js';

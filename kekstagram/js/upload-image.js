@@ -160,7 +160,7 @@ const hashtagsInput = document.querySelector('.text__hashtags')
 // }
 
 
-let closeUploadForm = function () {
+export const closeUploadForm = function () {
   if (hashtagsInput == document.activeElement) {
    return
   }
@@ -178,15 +178,13 @@ uploadPictureCloseButton.addEventListener('click', () => {
 document.addEventListener('keydown', (e) => {
   if (e.key == 'Escape') {
     closeUploadForm()
-
   }
 })
 
 document.addEventListener('click', (e) => {
-  if (e.target == uploadOverlay) {
+  if (e.target == uploadOverlay && hashtagsInput != document.activeElement) {
     closeUploadForm()
   }
-
 })
 
-// stop while focus
+
