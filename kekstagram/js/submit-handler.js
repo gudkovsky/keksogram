@@ -22,6 +22,7 @@ const buildAlertMessage = (message) => {
   left: 0;
   right: 0;
   background-color: rgba(255,255,255,0.5);
+  font-family: "Open Sans", "Arial", sans-serif;
   color: black;
   font-size: 30px;
   padding: 20px 25px;
@@ -42,7 +43,6 @@ imageUploadForm.addEventListener('submit', (event) => {
   fetch('https://25.javascript.pages.academy/kekstagram', {
   method: 'POST',
   body: formData,
-
   })
   .then((response) => {
     if (response.ok) {
@@ -52,6 +52,10 @@ imageUploadForm.addEventListener('submit', (event) => {
     } else {
       buildAlertMessage('Не удалось отправить форму. Попробуйте ещё раз');
       unblockSubmitButton();
+      throw new Error(`${response.status} — ${response.statusText}`);
     }
+  })
+  .catch((error) => {
+    console.log(error)
   })
 })
