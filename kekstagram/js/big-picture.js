@@ -19,6 +19,8 @@ previewPictures.forEach((e, i) => {
     bigPictureDescription.textContent = clickedPicture.alt;
     bigPictureLikesCount.textContent = randomGeneratedPhotos[i].likes;
 
+    // подставлять X в 1е число. Прибавлять к X + N, добавлять N комментариев в ленту. Пока не закончатся комменты (мб проверять остатком от деления)
+
     bigPictureCommentsCount.innerHTML = `${randomGeneratedPhotos[i].commentsNumber} из <span class="comments-count">${randomGeneratedPhotos[i].commentsNumber}</span> комментариев`;
 
     commentsList.innerHTML = ''
@@ -60,3 +62,22 @@ document.addEventListener('keydown', (e) => {
     document.body.classList.remove('modal-open')
   }
 })
+
+document.addEventListener('click', (e) => {
+  if (e.target == bigPictureContainer) {
+    bigPictureContainer.classList.add('hidden')
+    document.body.classList.remove('modal-open')
+  }
+})
+
+
+// likes or smth
+
+// const bigPicLikesBtn = document.querySelector('.likes-count')
+
+// bigPicLikesBtn.addEventListener('click', () => {
+//   if (!bigPicLikesBtn.classList.contains('likes-count--active')) {
+//     bigPicLikesBtn.classList.add('likes-count--active')
+
+//   }
+// })
