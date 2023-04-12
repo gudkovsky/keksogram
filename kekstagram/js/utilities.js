@@ -117,13 +117,11 @@ const createPhoto = () => {
 
   // create array of X photos in profile
 
-  export const createPhotos = () => Array.from({length: 12}, createPhoto);
+  const NUMBER_OF_PHOTOS = 12;
+
+  export const createPhotos = () => Array.from({length: NUMBER_OF_PHOTOS}, createPhoto);
+
   // ARCHIVE
-
-
-
-
-
 
 // const createPhotos = () => {
 //   for (let i = 1; i <= 25; i++) {
