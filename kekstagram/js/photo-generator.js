@@ -23,6 +23,7 @@ import { createPhotos } from "./utilities.js";
 
 export const randomGeneratedPhotos = createPhotos();
 
+
 randomGeneratedPhotos.forEach((photo) => {
   const randomPicture = randomPictureTemplate.cloneNode(true);
 
@@ -38,4 +39,5 @@ randomGeneratedPhotos.forEach((photo) => {
 
   picturesContainer.appendChild(randomPicture)
 });
+
 

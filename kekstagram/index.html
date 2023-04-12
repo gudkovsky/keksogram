@@ -13,12 +13,46 @@
   <main>
 
     <!-- Фильтрация изображений от других пользователей -->
-    <section class="img-filters  img-filters--inactive  container">
+    <section class="img-filters  img-filters--zzzzzzzzzzzzzzinactive  container">
       <h2 class="img-filters__title  visually-hidden">Фильтр фотографий</h2>
       <form class="img-filters__form" action="index.html" method="get" autocomplete="off">
-        <button type=button class="img-filters__button  img-filters__button--active" id="filter-default">По умолчанию</button>
-        <button type=button class="img-filters__button" id="filter-random">Случайные</button>
-        <button type=button class="img-filters__button" id="filter-discussed">Обсуждаемые</button>
+        <button type=button class="img-filters__button  img-filters__button--active" id="filter-default" title="По умолчанию">
+            <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="122px" height="122px" viewBox="0 0 30.52 30.52" xml:space="preserve" stroke="#000000" stroke-width="0.00030515">
+
+              <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <g id="SVGRepo_iconCarrier"> <g> <path d="M24.701,18.189l5.814,4.35l-5.814,4.348v-2.441h-5.697c-2.324,0-4.406-1.043-5.813-2.682 c-1.408,1.639-3.49,2.682-5.814,2.682H0v-4h7.375c2.025,0,3.674-1.647,3.674-3.674v-3.405c0-2.024-1.648-3.672-3.674-3.672H0v-4 h7.375c2.325,0,4.407,1.043,5.814,2.681c1.408-1.638,3.49-2.681,5.814-2.681h5.695V3.629l5.814,4.35l-5.814,4.35V9.696h-5.695 c-2.025,0-3.674,1.647-3.674,3.672v3.406c0,2.024,1.646,3.674,3.674,3.674h5.695v-2.258H24.701z"/> </g> </g>
+
+              </svg>
+        </button>
+        <button type=button class="img-filters__button" id="filter-popular" title="Популярные">
+          <svg width="256px" height="256px" viewBox="0 0 192.00 192.00" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="none">
+
+            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <g id="SVGRepo_iconCarrier">
+
+            <path d="M60.732 29.7C41.107 29.7 22 39.7 22 67.41c0 27.29 45.274 67.29 74 94.89 28.744-27.6 74-67.6 74-94.89 0-27.71-19.092-37.71-38.695-37.71C116 29.7 104.325 41.575 96 54.066 87.638 41.516 76 29.7 60.732 29.7z" style="clip-rule:evenodd;display:inline;fill:none;stroke-width:19.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1"/>
+
+            </g>
+
+            </svg>
+        </button>
+        <button type=button class="img-filters__button" id="filter-discussed" title="Обсуждаемые">
+          <svg width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" stroke="#000000" stroke-width="1.3439999999999999">
+
+            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <g id="SVGRepo_iconCarrier"> <g id="icomoon-ignore"> </g> <path d="M26.664 4.82h-21.328c-1.178 0-2.132 0.955-2.132 2.133v13.868c0 1.178 0.955 2.133 2.132 2.133h14.968l4.226 4.226v-4.226h2.134c1.178 0 2.133-0.955 2.133-2.133v-13.868c-0-1.178-0.955-2.133-2.133-2.133zM27.73 20.821c0 0.588-0.479 1.066-1.066 1.066h-3.2v2.718l-2.718-2.718h-15.41c-0.588 0-1.066-0.478-1.066-1.066v-13.868c0-0.588 0.479-1.066 1.066-1.066h21.328c0.588 0 1.066 0.478 1.066 1.066v13.868z" fill="none"> </path> <path d="M16 12.824c-0.589 0-1.066 0.478-1.066 1.066s0.477 1.066 1.066 1.066 1.066-0.477 1.066-1.066c0-0.588-0.477-1.066-1.066-1.066z" fill="none"> </path> <path d="M20.265 12.824c-0.589 0-1.066 0.478-1.066 1.066s0.477 1.066 1.066 1.066 1.066-0.477 1.066-1.066c0-0.588-0.477-1.066-1.066-1.066z" fill="none"> </path> <path d="M11.835 12.824c-0.589 0-1.066 0.478-1.066 1.066s0.477 1.066 1.066 1.066 1.066-0.477 1.066-1.066c0-0.588-0.477-1.066-1.066-1.066z" fill="none"> </path> </g>
+
+            </svg>
+        </button>
       </form>
     </section>
 
@@ -41,8 +75,8 @@
 
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
-              <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required>
-              <label for="upload-file" class="img-upload__label  img-upload__control">Загрузить</label>
+              <input class="img-upload__input  visually-hidden" type="file" id="upload-file" accept="image/png, image/jpg, image/jpeg" name="filename" required>
+              <label class="img-upload__label  img-upload__control" for="upload-file" >Загрузить</label>
             </fieldset>
 
             <!-- Форма редактирования изображения -->
