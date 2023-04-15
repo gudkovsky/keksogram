@@ -8,9 +8,45 @@ const bigPictureCommentsCount = bigPictureContainer.querySelector('.social__comm
 const commentsList = document.querySelector('.social__comments')
 
 import { randomGeneratedPhotos } from "./photo-generator.js"
+import { discussedArray } from "./sort-posts.js"
+
+///////////// OLD
+// previewPictures.forEach((e, i) => {
+//   e.addEventListener('click', (evt) => {
+//     console.log(evt.target)
+//     bigPictureContainer.classList.remove('hidden')
+//     document.body.classList.add('modal-open')
+
+//     const clickedPicture = e.querySelector('.picture__img')
+//     bigPictureImage.src = clickedPicture.src;
+//     bigPictureDescription.textContent = clickedPicture.alt;
+//     bigPictureLikesCount.textContent = randomGeneratedPhotos[i].likes;
+
+//     bigPictureCommentsCount.innerHTML = `${randomGeneratedPhotos[i].commentsNumber} из <span class="comments-count">${randomGeneratedPhotos[i].commentsNumber}</span> комментариев`;
+
+//     commentsList.innerHTML = ''
+//     for (let x = 0; x < randomGeneratedPhotos[i].commentsNumber; x++) {
+//       const commentText = randomGeneratedPhotos[i].comments[`${x}`].message
+//       const commentName = randomGeneratedPhotos[i].comments[`${x}`].name
+//       const commentUserpic = randomGeneratedPhotos[i].comments[`${x}`].avatar
+
+//       const commentTemplate = `<li class="social__comment">
+//       <img class="social__picture" src="${commentUserpic}" alt="Аватар комментатора фотографии" width="35" height="35">
+//         <p class="social__name">${commentName}</p>
+//        <p class="social__text">${commentText}</p>
+//     </li>`
+//     commentsList.insertAdjacentHTML('beforeend', commentTemplate)
+//     }
+
+//   })
+
+// })
 
 previewPictures.forEach((e, i) => {
-  e.addEventListener('click', () => {
+  e.addEventListener('click', (evt) => {
+    // console.log('evt :' + evt,
+    // 'e:'+ e,
+    // 'i' + i)
     bigPictureContainer.classList.remove('hidden')
     document.body.classList.add('modal-open')
 
@@ -18,8 +54,6 @@ previewPictures.forEach((e, i) => {
     bigPictureImage.src = clickedPicture.src;
     bigPictureDescription.textContent = clickedPicture.alt;
     bigPictureLikesCount.textContent = randomGeneratedPhotos[i].likes;
-
-    // подставлять X в 1е число. Прибавлять к X + N, добавлять N комментариев в ленту. Пока не закончатся комменты (мб проверять остатком от деления)
 
     bigPictureCommentsCount.innerHTML = `${randomGeneratedPhotos[i].commentsNumber} из <span class="comments-count">${randomGeneratedPhotos[i].commentsNumber}</span> комментариев`;
 
@@ -35,17 +69,10 @@ previewPictures.forEach((e, i) => {
        <p class="social__text">${commentText}</p>
     </li>`
     commentsList.insertAdjacentHTML('beforeend', commentTemplate)
-
-
-     // цикл повторяется столько раз, сколько комментариев в блоке
-     // цикл добавляет следующий комментарий по образцу в тело родителя
     }
 
   })
-
 })
-
-// e queryselector picture_img
 
 
 

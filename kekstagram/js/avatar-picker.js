@@ -7,7 +7,7 @@ const FILE_ALLOWED = ['jpg', 'png', 'jpeg']
 fileInput.addEventListener('change', () => {
     const file = fileInput.files[0]
     const fileName = file.name.toLowerCase();
-    const MAX_SIZE = 100;
+    const MAX_SIZE = 99999999999;
 
     const matchType = FILE_ALLOWED.some((type) => {
     return fileName.endsWith(type)
@@ -32,16 +32,17 @@ fileInput.addEventListener('change', () => {
     }
 
 
-    if (matchSize && matchType) {
+    if (matchSize() && matchType) {
       const fileUrl = URL.createObjectURL(file)
       previewPicture.src = fileUrl
-
+      console.log('success')
       previewEffects.forEach((el) => {
         console.log(fileUrl)
         el.style.backgroundImage =  `url(${fileUrl})`;
-      })
-
+      }
+      )
     }
+
 
     console.log(file)
 });

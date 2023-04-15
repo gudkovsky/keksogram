@@ -1450,7 +1450,7 @@ body.light-active .page-footer {
 }
 
 
-/* Адаптивности чуток
+/* Адаптив
    ========================================================================== */
 
 @media (min-width: 1024px) {
@@ -1478,6 +1478,10 @@ body.light-active .page-footer {
     -ms-grid-row-span: 3;
     grid-row: 1 / span 3;
   }
+.picture:last-child {
+  display: none;
+}
+
 }
 
 @media (min-width: 0) and (max-width: 1023px) {
